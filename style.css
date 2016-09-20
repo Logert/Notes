@@ -106,6 +106,7 @@ body {
     text-transform: uppercase;
     text-decoration:none;
     text-shadow:0px 1px 0px #2f6627;
+    margin-left: 50%;
 }
 
 .add-button:hover {
@@ -135,4 +136,31 @@ body {
     font-weight: 500;
     color: grey;
     text-shadow: 0px 2px 3px rgba(255,255,255,0.5);
+}
+
+.color-picker {
+
+}
+.color {
+    border-radius: 50%;
+    background: #F4F7AD;
+    width: 25px;
+    height: 25px;
+    float: left;
+    border: solid 2px whitesmoke;
+    margin: 2px;
+    -webkit-transition: all 0.2s;
+    -moz-transition: all 0.2s;
+    -ms-transition: all 0.2s;
+    -o-transition: all 0.2s;
+    transition: all 0.2s;
+    list-style-type: none;
+}
+.color:hover {
+    box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+
+}
+.color:active {
+    position:relative;
+    top:1px;
 }

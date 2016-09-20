@@ -4,6 +4,7 @@ var Note = React.createClass({
         return (
             <div className="note" style={style}>
                 <span className="delete-note" onClick={this.props.onDelete}> × </span>
+                <br/>
                 {this.props.children}
             </div>
         );
@@ -14,7 +15,7 @@ var NoteEditor = React.createClass({
     getInitialState: function() {
         return {
             text: '',
-            color: 'yellow',
+            color: '#F4F7AD',
         };
     },
     handleTextChange: function(event) {
@@ -31,11 +32,20 @@ var NoteEditor = React.createClass({
         this.props.onNoteAdd(newNote);
         this.setState({ text: '' });
     },
-    handleColorChange: function (e) {
-          this.setState({color: e.target.value});
+    ColorRed: function () {
+        this.setState({color: "#E38181"})
+    },
+    ColorGreen: function () {
+        this.setState({color: "#A8E0A2"})
+    },
+    ColorYellow: function () {
+        this.setState({color: "#F4F7AD"})
     },
 
     render: function() {
+        var red = {backgroundColor: '#E38181'};
+        var green = {backgroundColor: '#A8E0A2'};
+        var yellow = {backgroundColor: '#F4F7AD'};
         return (
             <div className="note-editor">
                 <textarea
@@ -45,9 +55,17 @@ var NoteEditor = React.createClass({
                     value={this.state.text}
                     onChange={this.handleTextChange}
                 />
-
-                <input type="color" onChange={this.handleColorChange}></input>
+                <div>
+                    <ul>
+                        <li className="color" style={red} onClick={this.ColorRed}>
+                        </li>
+                        <li className="color" style={green} onClick={this.ColorGreen}>
+                        </li>
+                        <li className="color" style={yellow} onClick={this.ColorYellow}>
+                        </li>
+                    </ul>
                 <button className="add-button" onClick={this.handleNoteAdd}>Add</button>
+                </div>
             </div>
         );
     }
